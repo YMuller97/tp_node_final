@@ -13,10 +13,10 @@ router.get("/:id", movieController.getMovieById);
 
 // -------------------- Routes protégées --------------------
 // Ajouter un film
-router.post("/", auth, movieController.addMovie);
+router.post("/", auth, upload.single("movie_image"), movieController.addMovie);
 
 // Modifier un film
-router.put("/:id", auth, movieController.updateMovie);
+router.put("/:id", auth, upload.single("movie_image"), movieController.updateMovie);
 
 // Supprimer un film
 router.delete("/:id", auth, movieController.deleteMovie)

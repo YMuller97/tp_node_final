@@ -3,7 +3,7 @@ const path = require('path');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, '../uploads/'));
+    cb(null, path.join(__dirname, '../uploads'));
   },
   filename: (req, file, cb) => {
     const filename = Date.now() + "-" + file.originalname;
@@ -22,5 +22,5 @@ const fileFilter = (req, file, cb) => {
 module.exports = multer({
   storage: storage,
   fileFilter: fileFilter,
-  limits: { fileSize: 1024 * 1024 * 5 } // 5MB
+  limits: { fileSize: 1024 * 1024 * 5 }
 });

@@ -32,7 +32,7 @@ const movieController = {
 			// de l'image fournie
 			const movie = {
                 ...req.body, 
-                imageUrl: req.file ? `/uploads/${req.file.filename}` : null 
+                movie_image: req.file ? `/uploads/${req.file.filename}` : null 
             };
 			await movieService.addMovie(movie);
 			res.status(200).json({message: "MovieController : Film ajouté avec succès !"});
@@ -46,7 +46,7 @@ const movieController = {
 		try {
 			const data = {
                 ...req.body, 
-                imageUrl: req.file ? `/uploads/${req.file.filename}` : null 
+                movie_image: req.file ? `/uploads/${req.file.filename}` : null 
             };
 			const movie_id = req.params.id;
 			await movieService.updateMovie(data, movie_id);
